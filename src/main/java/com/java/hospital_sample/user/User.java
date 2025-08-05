@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 @Table(name = "users") 
 public class User {
 	@Id
-	private int id;
+	private int userid;
 	private String name;
 	private int age;
 	private String Address;
@@ -17,10 +17,10 @@ public class User {
 		
 	}
 	public int getId() {
-		return id;
+		return userid;
 	}
 	public void setId(int id) {
-		this.id = id;
+		this.userid = id;
 	}
 	public String getName() {
 		return name;
@@ -46,8 +46,8 @@ public class User {
 	public int getWeight() {
 		return weight;
 	}
-	public User(int id, String name, int age, String address, int weight) {
-		this.id = id;
+	public User(int userid, String name, int age, String address, int weight) {
+		this.userid = userid;
 		this.name = name;
 		this.age = age;
 		Address = address;

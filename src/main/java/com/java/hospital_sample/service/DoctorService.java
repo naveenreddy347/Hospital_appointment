@@ -20,16 +20,16 @@ public class DoctorService {
         return doctorRepository.findAll();
     }
 
-    public Optional<Doctor> getDoctorById(Long id) {
-        return doctorRepository.findById(id);
+    public Optional<Doctor> getDoctorById(Long docid) {
+        return doctorRepository.findById(docid);
     }
 
     public Doctor saveDoctor(Doctor doctor) {
         return doctorRepository.save(doctor);
     }
 
-    public Doctor updateDoctor(Long id, Doctor updatedDoctor) {
-        return doctorRepository.findById(id)
+    public Doctor updateDoctor(Long docid, Doctor updatedDoctor) {
+        return doctorRepository.findById(docid)
                 .map(doctor -> {
                     doctor.setName(updatedDoctor.getName());
                     doctor.setDesignation(updatedDoctor.getDesignation());
@@ -39,7 +39,7 @@ public class DoctorService {
     }
 
 
-    public void deleteDoctor(Long id) {
-        doctorRepository.deleteById(id);
+    public void deleteDoctor(Long docid) {
+        doctorRepository.deleteById(docid);
     }
 }

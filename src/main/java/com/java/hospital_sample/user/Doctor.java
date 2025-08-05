@@ -11,7 +11,7 @@ public class Doctor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long docid;
 
     @Column(nullable = false)
     private String name;
@@ -28,8 +28,8 @@ public class Doctor {
     // Constructors
     public Doctor() {}
 
-    public Doctor(Long id, String name, String designation, LocalDateTime createdAt, LocalDateTime updatedAt) {
-        this.id = id;
+    public Doctor(Long docid, String name, String designation, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.docid = docid;
         this.name = name;
         this.designation = designation;
         this.createdAt = createdAt;
@@ -38,11 +38,11 @@ public class Doctor {
 
     // Getters and Setters
     public Long getId() {
-        return id;
+        return docid;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.docid = id;
     }
 
     public String getName() {

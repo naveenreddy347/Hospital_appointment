@@ -30,9 +30,9 @@ public class UserController {
         return person.findAll();
     }
 
-@GetMapping("/users/{id}")
-public ResponseEntity<User> getPatientById(@PathVariable int id) {
-    return person.findById(id)
+@GetMapping("/users/{userid}")
+public ResponseEntity<User> getPatientById(@PathVariable int userid) {
+    return person.findById(userid)
         .map(user -> ResponseEntity.ok().body(user))
         .orElse(ResponseEntity.notFound().build());
 }
@@ -43,9 +43,9 @@ public ResponseEntity<User> getPatientById(@PathVariable int id) {
         return person.save(user);
     }
     
-    @PutMapping("/users/{id}")
-    public String updatePatient(@PathVariable int id, @RequestBody User user) {
-    	if(person.existsById(id)) {
+    @PutMapping("/users/{userid}")
+    public String updatePatient(@PathVariable int userid, @RequestBody User user) {
+    	if(person.existsById(userid)) {
     		person.save(user);
     		return "updated record";
     	}
@@ -53,10 +53,10 @@ public ResponseEntity<User> getPatientById(@PathVariable int id) {
     		return "Person not founded";
     	}
     }
-    @DeleteMapping("/users/{id}")
-    public String  deletePatient(@PathVariable int id){
-    	if(person.existsById(id)) {
-    		person.deleteById(id);
+    @DeleteMapping("/users/{userid}")
+    public String  deletePatient(@PathVariable int userid){
+    	if(person.existsById(userid)) {
+    		person.deleteById(userid);
     		return "Student deleted";
     	}
     	else {

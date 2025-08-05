@@ -20,9 +20,9 @@ public class DoctorController {
         return doctorService.getAllDoctors();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Doctor> getDoctorById(@PathVariable Long id) {
-        return doctorService.getDoctorById(id)
+    @GetMapping("/{docid}")
+    public ResponseEntity<Doctor> getDoctorById(@PathVariable Long docid) {
+        return doctorService.getDoctorById(docid)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
@@ -32,19 +32,19 @@ public class DoctorController {
         return doctorService.saveDoctor(doctor);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Doctor> updateDoctor(@PathVariable Long id, @RequestBody Doctor doctor) {
+    @PutMapping("/{docid}")
+    public ResponseEntity<Doctor> updateDoctor(@PathVariable Long docid, @RequestBody Doctor doctor) {
         try {
-            Doctor updatedDoctor = doctorService.updateDoctor(id, doctor);
+            Doctor updatedDoctor = doctorService.updateDoctor(docid, doctor);
             return ResponseEntity.ok(updatedDoctor);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteDoctor(@PathVariable Long id) {
-        doctorService.deleteDoctor(id);
+    @DeleteMapping("/{docid}")
+    public ResponseEntity<Void> deleteDoctor(@PathVariable Long docid) {
+        doctorService.deleteDoctor(docid);
         return ResponseEntity.noContent().build();
     }
 }
