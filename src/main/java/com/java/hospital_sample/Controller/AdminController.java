@@ -59,10 +59,10 @@ public ResponseEntity<User> getPatientById(@PathVariable int id) {
     public String  deletePatient(@PathVariable int id){
     	if(person.existsById(id)) {
     		person.deleteById(id);
-    		return "Student deleted";
+    		return "User deleted";
     	}
     	else {
-    		return "student nit found";
+    		return "user not found";
     	}
 }
     @Autowired
@@ -85,6 +85,7 @@ public ResponseEntity<User> getPatientById(@PathVariable int id) {
         return doctorService.saveDoctor(doctor);
     }
  
+    
     @PutMapping("/doctor/{docid}")
     public ResponseEntity<Doctor> updateDoctor(@PathVariable Long id, @RequestBody Doctor doctor) {
         try {
