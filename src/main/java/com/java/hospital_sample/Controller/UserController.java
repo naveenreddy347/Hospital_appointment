@@ -60,7 +60,7 @@ public ResponseEntity<User> getPatientById(@PathVariable int userid) {
     		return "Student deleted";
     	}
     	else {
-    		return "student nit found";
+    		return "student not found";
     	}
 }
 }
