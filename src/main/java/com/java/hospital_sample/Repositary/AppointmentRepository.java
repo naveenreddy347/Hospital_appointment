@@ -29,6 +29,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
  
 public interface AppointmentRepository extends JpaRepository<Appointment, Long> {
  
@@ -40,4 +41,8 @@ List<Appointment> findByUser(User user);
     List<Appointment> findByDoctorAndAppointmentDate(Doctor doctor, LocalDate appointmentDate);
  
     int countByDoctorAndAppointmentDate(Doctor doctor, LocalDate appointmentDate);
+ 
+
+
+
 }

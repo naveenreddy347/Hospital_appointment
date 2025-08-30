@@ -21,6 +21,7 @@ public class UserController {
     public ResponseEntity<User> registerUser(@RequestBody User user) {
         return ResponseEntity.ok(userRepository.save(user));
     }
+    
 
     // ✅ Login with name and password
     @PostMapping("/login")

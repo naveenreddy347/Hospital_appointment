@@ -47,6 +47,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
  
 @Entity
+@Table(name="appointment")
 public class Appointment {
  
     @Id
@@ -65,8 +66,8 @@ public class Appointment {
  
     @Column(name = "appointment_no")
     private int appointmentNo;
- 
-    // Getters and Setters
+
+    
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
  
